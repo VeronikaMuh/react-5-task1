@@ -1,0 +1,18 @@
+.app {
+	display: flex;
+	flex-direction: column;
+	padding-top: 10vh;
+	align-items: center;
+	gap: 7px;
+}
+.title {
+	padding-bottom: 15px;
+	font-size: 30px;
+	font-weight: 600;
+}
+.todo {
+	font-size: 18px;
+}
+span {
+	color: red;
+}
