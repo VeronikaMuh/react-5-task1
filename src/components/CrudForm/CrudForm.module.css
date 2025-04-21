@@ -1,0 +1,34 @@
+.mainInput {
+	width: 550px;
+	height: 40px;
+	border-radius: 10px;
+	border: none;
+	color: black;
+	font-size: 20px;
+	padding: 10px 10px
+}
+.mainInput:focus {
+	outline: none;
+	border: 2px solid black;
+}
+.crudButtons {
+	display: flex;
+	gap: 20px;
+	margin-top: 20px;
+}
+.crudButton {
+	padding: 7px 20px;
+	border-radius: 10px;
+	border: 2px solid white;
+	background-color: white;
+	font-size: 18px;
+}
+.crudButton:hover {
+	border: 2px solid black;
+}
+.crudForm {
+	display: flex;
+	flex-direction: column;
+	padding-top: 10vh;
+	align-items: center;
+}
