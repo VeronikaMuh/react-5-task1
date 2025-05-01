@@ -5,7 +5,7 @@ export const useGetRequest = (setLoading, refreshTodosFlag) => {
 	useEffect(() => {
 		setLoading(true);
 
-		fetch('http://localhost:3000/products')
+		fetch('http://localhost:3050/products')
 			.then((rawResponse) => rawResponse.json())
 			.then((response) => {
 				setTodos(response);

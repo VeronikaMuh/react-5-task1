@@ -1,19 +1,13 @@
+import { AppContext } from '../../context';
 import styles from './CrudForm.module.css';
-export const CrudForm = ({
-	loading,
-	postRequest,
-	usePutRequest,
-	useDeleteRequest,
-	refreshTodos,
-	lastId,
-	text,
-	setText,
-	sortByAlphabet,
-}) => {
+import { useContext } from 'react';
+export const CrudForm = () => {
+	const { text, setText, loading, refreshTodos, lastId, sortByAlphabet } =
+		useContext(AppContext);
 	const onClick = () => {
 		setText('');
 	};
-
+	//text, setText, loading, refreshTodos, lastId, sortByAlphabet
 	return (
 		<form onClick={onClick} className={styles.crudForm}>
 			<input

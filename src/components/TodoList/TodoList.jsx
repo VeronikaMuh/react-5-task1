@@ -1,5 +1,8 @@
+import { useContext } from 'react';
 import styles from './TodoList.module.css';
-export const TodoList = ({ todos, loading, filteredItems, sort }) => {
+import { AppContext } from '../../context';
+export const TodoList = () => {
+	const { todos, loading, filteredItems, sort } = useContext(AppContext);
 	return (
 		<div className={styles.todoList}>
 			<div className={styles.title}>Список дел</div>

@@ -1,8 +1,8 @@
 import styles from './App.module.css';
-import Fuse from 'fuse.js';
 import { usePostRequest, useGetRequest, usePutRequest, useDeleteRequest } from './hooks';
 import { TodoList, CrudForm } from './components';
 import { useState, useEffect } from 'react';
+import { AppContext } from './context';
 export const App = () => {
 	const [text, setText] = useState('');
 	const [loading, setLoading] = useState(false);
@@ -21,6 +21,23 @@ export const App = () => {
 		setSort(sortItems);
 	};
 
+	const mainState = {
+		text,
+		setText,
+		loading,
+		setLoading,
+		refreshTodosFlag,
+		setRefreshTodosFlag,
+		sort,
+		setSort,
+		filteredItems,
+		refreshTodos,
+		setFilteredItems,
+		todos,
+		lastId,
+		sortByAlphabet,
+	};
+
 	useEffect(() => {
 		const filtered = todos.filter((item) =>
 			item.text.toLowerCase().includes(text.toLowerCase()),
@@ -28,27 +45,13 @@ export const App = () => {
 		setFilteredItems(filtered);
 	}, [text]);
 
-	console.log(filteredItems);
 	return (
-		<div className={styles.app}>
-			<CrudForm
-				loading={loading}
-				postRequest={usePostRequest}
-				usePutRequest={usePutRequest}
-				useDeleteRequest={useDeleteRequest}
-				refreshTodos={refreshTodos}
-				lastId={lastId}
-				text={text}
-				setText={setText}
-				sortByAlphabet={sortByAlphabet}
-			/>
+		<AppContext value={mainState}>
+			<div className={styles.app}>
+				<CrudForm />
 
-			<TodoList
-				todos={todos}
-				filteredItems={filteredItems}
-				loading={loading}
-				sort={sort}
-			/>
-		</div>
+				<TodoList />
+			</div>
+		</AppContext>
 	);
 };
